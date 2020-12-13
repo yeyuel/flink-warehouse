@@ -1,9 +1,17 @@
+import java.nio.file.Paths
+
 import org.apache.flink.api.scala.ExecutionEnvironment
+
+import scala.io.Source
 
 object BatchFile {
   def main(args: Array[String]): Unit = {
 
-    val inputPath = "/home/yeyuel/git-repo/flink-warehousee/flink-study/src/main/resources/text.txt"
+    val source = getClass.getResource("").getPath
+
+    println(source)
+    val inputPath = Paths.get(source, "text.txt").toString
+    val outputPath = Paths.get(source, "output.txt").toString
 
     val env = ExecutionEnvironment.getExecutionEnvironment
     import org.apache.flink.api.scala._
@@ -17,7 +25,7 @@ object BatchFile {
       .groupBy(0)
       .sum(1)
 
-    counts.writeAsCsv("/home/yeyuel/git-repo/flink-warehousee/flink-study/src/main/resources/output.csv").setParallelism(1)
+    counts.writeAsCsv(outputPath).setParallelism(1)
     env.execute("Batch WordCount")
 
   }
