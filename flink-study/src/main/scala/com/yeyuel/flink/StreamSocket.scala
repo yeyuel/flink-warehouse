@@ -1,3 +1,5 @@
+package com.yeyuel.flink
+
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
 
 object StreamSocket {

@@ -1,8 +1,8 @@
+package com.yeyuel.flink
+
 import java.nio.file.Paths
 
 import org.apache.flink.api.scala.ExecutionEnvironment
-
-import scala.io.Source
 
 object BatchFile {
   def main(args: Array[String]): Unit = {

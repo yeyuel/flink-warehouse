@@ -1,3 +1,5 @@
+package com.yeyuel.flink
+
 object HelloWorld {
   def main(args: Array[String]): Unit = {
     var words = Set("hive", "hbase", "redis")
